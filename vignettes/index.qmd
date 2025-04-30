@@ -4,7 +4,7 @@ author: "Calvin Deutschbein"
 description: >
  This document provides an example usage of the `vcd2df` function.
 vignette: >
-  %\VignetteIndexEntry{example}
+  %\VignetteIndexEntry{index}
   %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 format: 

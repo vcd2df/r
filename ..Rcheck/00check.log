@@ -1,0 +1,9 @@
+* using log directory ‘/home/user/dev/search/vcd_df/r/vcd2df/..Rcheck’
+* using R version 4.1.2 (2021-11-01)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using option ‘--as-cran’
+* checking for file ‘./DESCRIPTION’ ... OK
+* this is package ‘vcd2df’ version ‘1.0.0’
+* package encoding: UTF-8
+* checking CRAN incoming feasibility ...
