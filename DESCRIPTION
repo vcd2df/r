@@ -27,3 +27,4 @@ RoxygenNote: 7.3.2
 Author: Calvin Deutschbein [aut, cre] (<https://orcid.org/0000-0003-1354-7200>)
 Maintainer: Calvin Deutschbein <ckdeutschbein@willamette.edu>
 VignetteBuilder: quarto
+Suggests: quarto

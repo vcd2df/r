@@ -49,10 +49,10 @@ library(vcd2df)
 The same GitHub organization used to host this package also hosts a few
 small VCD files from common development platforms. We will download a 
 VCD file from the smallest, the "Naive Educational RISC-V Processor"
-which uses a short testbench and generates a manageable file.
+(NERV) which uses a short testbench and generates a manageable file.
 
 ```{r}
-f_name <- 'aker.vcd'
+f_name <- 'nerv.vcd'
 url <- 'https://github.com/vcd2df/vcd_ex/raw/refs/heads/main/'
 download.file(url = paste0(url, f_name), destfile = f_name)
 ```
@@ -67,11 +67,13 @@ df <- vcd2df(f_name)
 
 ## Inspect data frame
 
-Most commonly, we can look at some register names with `rownames()` or timestamps with `colnames()`.
+Most commonly, we can look at some register names with `rownames()`... 
 
 ```{r}
 colnames(df)[1:5]
 ```
+
+... or timestamps with `colnames()`.
 
 ```{r}
 rownames(df)[1:5]
