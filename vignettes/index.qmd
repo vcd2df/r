@@ -46,8 +46,8 @@ library(vcd2df)
 
 ## Sample Data
 
-The same GitHub organization used to host this package also hosts a few
-small VCD files from common development platforms. We will download a 
+We have created a [small repository](https://github.com/vcd2df/vcd_ex) with a
+few VCD files from common development platforms. We will download a 
 VCD file from the smallest, the "Naive Educational RISC-V Processor"
 (nerv) which uses a short testbench and generates a manageable file.
 
@@ -57,8 +57,8 @@ url <- 'https://github.com/vcd2df/vcd_ex/raw/refs/heads/main/'
 download.file(url = paste0(url, f_name), destfile = f_name)
 ```
 
-The file `nerv.vcd` is created as specified in the `Makefile` 
-[YosysHQ/nerv](https://github.com/YosysHQ/nerv) repository and running
+The file `nerv.vcd` is created as specified in the `Makefile` of the
+[YosysHQ/nerv](https://github.com/YosysHQ/nerv) repository by running
 `make test` which generates a VCD file called `testbench.vcd`. We simply
 renamed this file to differentiate to document it's source design.
 
