@@ -1,0 +1,80 @@
+---
+title: "Using `vcd2df` to load a Value Change Dump as a Data Frame"
+author: "Calvin Deutschbein"
+description: >
+ This document provides an example usage of the `vcd2df` function.
+vignette: >
+  %\VignetteIndexEntry{example}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+format: 
+  html:
+    theme: none
+    minimal: true
+    embed-resources: true
+---
+
+## Value Change Dump files
+
+We provide an example of the `vcd2df` function loading a IEEE 1364-2001 
+VCD (.vcd) file, specified as an parameter as a string containing exactly 
+a file path, and returns an R dataframe containing values over time.
+  
+A VCD file captures the register values at discrete timepoints from a 
+simulated trace of execution of a hardware design in verilog or VHDL.
+
+The returned dataframe contains a row for each register, by name, and a
+column for each time point, specified VCD-style using octothorpe-prefixed 
+multiples of the timescale. 
+
+The only non-trivial implementation details are that
+
+1. VCD 'x' and 'z' non-numerical values are encoded as negativei values 
+(as otherwise all bit values are positive) and 
+2. registers with repeated names in distinct modules are ignored, rather 
+than duplicated, as we anticipate these registers to have the same values.
+
+## Setup 
+
+The library and function share the same name, which we load as follows:
+
+
+```{r}
+#| label: setup
+library(vcd2df)
+```
+
+## Sample Data
+
+The same GitHub organization used to host this package also hosts a few
+small VCD files from common development platforms. We will download a 
+VCD file from the smallest, the "Naive Educational RISC-V Processor"
+which uses a short testbench and generates a manageable file.
+
+```{r}
+f_name <- 'aker.vcd'
+url <- 'https://github.com/vcd2df/vcd_ex/raw/refs/heads/main/'
+download.file(url = paste0(url, f_name), destfile = f_name)
+```
+
+## Load into data frame
+
+With a local VCD file, loading is a single function call.
+
+```{r}
+df <- vcd2df(f_name)
+```
+
+## Inspect data frame
+
+Most commonly, we can look at some register names with `rownames()` or timestamps with `colnames()`.
+
+```{r}
+colnames(df)[1:5]
+```
+
+```{r}
+rownames(df)[1:5]
+```
+
+From there, the entire R data science workflow is accessible.

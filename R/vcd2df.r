@@ -2,9 +2,7 @@
 #' 
 #' @param f_name The path of a VCD (value change dump) file.
 #' @returns A data frame with the values of the variables at each time point.
-#' @examples
-#' vcd2df("example.vcd")
-#' vcd2df("testbench.vcd")
+#' @export
 vcd2df <- function(f_name) {
   # Basically, do some hacks to read line-by-line, and skip to the good part (vars)
   fptr <- file(f_name, "r")
@@ -28,7 +26,8 @@ vcd2df <- function(f_name) {
     line <- readLines(fptr, n = 1)
   }
   # We make a df to store a time point
-  t_n <- setNames(rep(-1, length(vars)), vars)
+  t_n <- rep(-1, length(vars))
+  names(t_n) <- vars
   df <- data.frame(t_n)
   
   while (!grepl("\\$dumpvars", readLines(fptr, n = 1))) {
