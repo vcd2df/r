@@ -49,13 +49,18 @@ library(vcd2df)
 The same GitHub organization used to host this package also hosts a few
 small VCD files from common development platforms. We will download a 
 VCD file from the smallest, the "Naive Educational RISC-V Processor"
-(NERV) which uses a short testbench and generates a manageable file.
+(nerv) which uses a short testbench and generates a manageable file.
 
 ```{r}
 f_name <- 'nerv.vcd'
 url <- 'https://github.com/vcd2df/vcd_ex/raw/refs/heads/main/'
 download.file(url = paste0(url, f_name), destfile = f_name)
 ```
+
+The file `nerv.vcd` is created as specified in the `Makefile` 
+[YosysHQ/nerv](https://github.com/YosysHQ/nerv) repository and running
+`make test` which generates a VCD file called `testbench.vcd`. We simply
+renamed this file to differentiate to document it's source design.
 
 ## Load into data frame
 
@@ -68,15 +73,16 @@ df <- vcd2df(f_name)
 ## Inspect data frame
 
 Most commonly, we can look at some register names with `rownames()`... 
+```{r}
+rownames(df)[1:5]
+```
+
+
+... or timestamps with `colnames()`.
 
 ```{r}
 colnames(df)[1:5]
 ```
 
-... or timestamps with `colnames()`.
-
-```{r}
-rownames(df)[1:5]
-```
 
 From there, the entire R data science workflow is accessible.
