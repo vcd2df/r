@@ -3,6 +3,12 @@
 #' @param f_name The path of a VCD (value change dump) file.
 #' @returns A data frame with the values of the variables at each time point.
 #' @export
+#' @examples
+#' library(vcd2df)
+#' f_name <- tempfile()
+#' vcd <- 'https://github.com/vcd2df/vcd_ex/raw/refs/heads/main/nerv.vcd'
+#' download.file(url = vcd, destfile = f_name)
+#' df <- vcd2df(f_name)
 vcd2df <- function(f_name) {
   # Basically, do some hacks to read line-by-line, and skip to the good part (vars)
   fptr <- file(f_name, "r")
@@ -77,15 +83,4 @@ vcd2df <- function(f_name) {
       return(df[, -1])
     }
   }
-}
-
-if (!interactive()) {
-    args <- commandArgs(trailingOnly = TRUE)
-    if (length(args) == 1) {
-      df <- vcd2df(args[1])
-      name <- strsplit(basename(args[1]), "\\.")[[1]][1]
-      saveRDS(df, paste0(name, ".rds"))
-    } else {
-      cat("Usage: Rscript vcd_df.R <filename>.vcd\n")
-    }
 }

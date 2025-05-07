@@ -52,9 +52,10 @@ VCD file from the smallest, the "Naive Educational RISC-V Processor"
 (nerv) which uses a short testbench and generates a manageable file.
 
 ```{r}
-f_name <- 'nerv.vcd'
-url <- 'https://github.com/vcd2df/vcd_ex/raw/refs/heads/main/'
-download.file(url = paste0(url, f_name), destfile = f_name)
+#| label: download
+f_name <- tempfile()
+vcd <- 'https://github.com/vcd2df/vcd_ex/raw/refs/heads/main/nerv.vcd'
+download.file(url = vcd, destfile = f_name)
 ```
 
 The file `nerv.vcd` is created as specified in the `Makefile` of the
@@ -67,13 +68,24 @@ renamed this file to differentiate to document it's source design.
 With a local VCD file, loading is a single function call.
 
 ```{r}
+#| label: read
 df <- vcd2df(f_name)
+```
+
+### File Management
+
+Once loaded within a data frame, the intial file may be cleaned.
+
+```{r}
+#| label: clean
+unlink(f_name)
 ```
 
 ## Inspect data frame
 
 Most commonly, we can look at some register names with `rownames()`... 
 ```{r}
+#| label: rownames
 rownames(df)[1:5]
 ```
 
@@ -81,8 +93,8 @@ rownames(df)[1:5]
 ... or timestamps with `colnames()`.
 
 ```{r}
+#| label: colnames
 colnames(df)[1:5]
 ```
-
 
 From there, the entire R data science workflow is accessible.
