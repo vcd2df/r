@@ -19,8 +19,9 @@ Description: Provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001
     values (as otherwise all bit values are positive) and (2) registers with
     repeated names in distinct modules are ignored, rather than duplicated, as
     we anticipate these registers to have the same values.
-URL: https://github.com/vcd2df/vcd2df
-BugReports: https://github.com/vcd2df/vcd2df/issues
+    <doi:10.48550/arXiv.2503.19180>
+URL: https://github.com/vcd2df/r
+BugReports: https://github.com/vcd2df/r/issues
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
