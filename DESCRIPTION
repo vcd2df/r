@@ -6,20 +6,19 @@ Authors@R: person(
     email = "ckdeutschbein@willamette.edu", 
     role = c("aut", "cre"),
     comment = c(ORCID = "0000-0003-1354-7200"))
-Description: Provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001 
-    VCD (.vcd) file, specified as an parameter as a string containing exactly 
-    a file path, and returns an R dataframe containing values over time.  
-    A VCD file captures the register values at discrete timepoints from a 
-    simulated trace of execution of a hard
-    ware design in Verilog or VHDL.
+Description: Provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001
+    VCD (.vcd) file, specified as an parameter as a string containing exactly
+    a file path, and returns an R dataframe containing values over time. 
+    A VCD file captures the register values at discrete timepoints from a
+    simulated trace of execution of a hardware design in Verilog or VHDL.
     The returned dataframe contains a row for each register, by name, and a
-    column for each time point, specified VCD-style using octothorpe-prefixed 
+    column for each time point, specified VCD-style using octothorpe-prefixed
     multiples of the timescale. The only non-trivial implementation details are
     that (1) VCD 'x' and 'z' non-numerical values are encoded as negative
     values (as otherwise all bit values are positive) and (2) registers with
     repeated names in distinct modules are ignored, rather than duplicated, as
     we anticipate these registers to have the same values.
-    Read more in arXiv preprint: "vcd2df -- Leveraging Data Science Insights 
+    Read more in arXiv preprint: "vcd2df" -- Leveraging Data Science Insights
     for Hardware Security Research <doi:>10.48550/arXiv.2505.06470.
 URL: https://github.com/vcd2df/r
 BugReports: https://github.com/vcd2df/r/issues
