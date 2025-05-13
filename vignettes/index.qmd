@@ -16,8 +16,8 @@ format:
 
 ## Value Change Dump files
 
-We provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001
-VCD (.vcd) file, specified as a parameter of string type containing exactly
+We provide the 'vcd2df' function, which loads a IEEE 1364-1995/2001
+VCD (.vcd) file, specified as a parameter of type string containing exactly
 a file path, and returns an R dataframe containing values over time.  
 
 A VCD file captures the register values at discrete timepoints from a
@@ -31,7 +31,7 @@ The only non-trivial implementation details are that
 
 1. VCD 'x' and 'z' non-numerical values are encoded as negativei values 
 (as otherwise all bit values are positive) and 
-2. registers with repeated names in distinct modules are ignored, rather 
+2. Registers with repeated names in distinct modules are ignored, rather 
 than duplicated, as we anticipate these registers to have the same values.
 
 ## Setup 
@@ -61,8 +61,8 @@ download.file(url = vcd, destfile = f_name)
 The file `nerv.vcd` is created as specified in the `Makefile` of the
 [YosysHQ/nerv](https://github.com/YosysHQ/nerv) repository by running
 `make test` which generates a VCD file called `testbench.vcd`. We simply
-renamed this file to document it's source design, and store it locally
-on our system as a `tempfile`.
+renamed this file to document its source design, and store it locally
+on our system as a `tempfile()`.
 
 ## Load into data frame
 

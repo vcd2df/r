@@ -7,7 +7,7 @@ Authors@R: person(
     role = c("aut", "cre"),
     comment = c(ORCID = "0000-0003-1354-7200"))
 Description: Provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001
-    VCD (.vcd) file, specified as a parameter as a string containing exactly
+    VCD (.vcd) file, specified as a parameter of type string containing exactly
     a file path, and returns an R dataframe containing values over time.  
     A VCD file captures the register values at discrete timepoints from a 
     simulated trace of execution of a hardware design in Verilog or VHDL.
