@@ -20,7 +20,7 @@ Description: Provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001
     repeated names in distinct modules are ignored, rather than duplicated, as
     we anticipate these registers to have the same values.
     Read more in arXiv preprint: "vcd2df -- Leveraging Data Science Insights 
-    for Hardware Security Research <doi:arXiv.2505.06470>.
+    for Hardware Security Research <doi:>10.48550/arXiv.2505.06470.
 URL: https://github.com/vcd2df/r
 BugReports: https://github.com/vcd2df/r/issues
 License: GPL-3
