@@ -16,16 +16,16 @@ format:
 
 ## Value Change Dump files
 
-We provide an example of the `vcd2df` function loading a IEEE 1364-2001 
-VCD (.vcd) file, specified as an parameter as a string containing exactly 
-a file path, and returns an R dataframe containing values over time.
-  
-A VCD file captures the register values at discrete timepoints from a 
-simulated trace of execution of a hardware design in verilog or VHDL.
+We provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001
+VCD (.vcd) file, specified as a parameter of string type containing exactly
+a file path, and returns an R dataframe containing values over time.  
+
+A VCD file captures the register values at discrete timepoints from a
+simulated trace of execution of a hardware design in Verilog or VHDL.
 
 The returned dataframe contains a row for each register, by name, and a
 column for each time point, specified VCD-style using octothorpe-prefixed 
-multiples of the timescale. 
+multiples of the timescale as strings. 
 
 The only non-trivial implementation details are that
 
@@ -49,7 +49,7 @@ library(vcd2df)
 We have created a [small repository](https://github.com/vcd2df/vcd_ex) with a
 few VCD files from common development platforms. We will download a 
 VCD file from the smallest, the "Naive Educational RISC-V Processor"
-(nerv) which uses a short testbench and generates a manageable file.
+(NERV) which uses a short testbench and generates a manageable file.
 
 ```{r}
 #| label: download
@@ -61,11 +61,12 @@ download.file(url = vcd, destfile = f_name)
 The file `nerv.vcd` is created as specified in the `Makefile` of the
 [YosysHQ/nerv](https://github.com/YosysHQ/nerv) repository by running
 `make test` which generates a VCD file called `testbench.vcd`. We simply
-renamed this file to differentiate to document it's source design.
+renamed this file to document it's source design, and store it locally
+on our system as a `tempfile`.
 
 ## Load into data frame
 
-With a local VCD file, loading is a single function call.
+With a local file, loading is a single function call.
 
 ```{r}
 #| label: read
@@ -74,7 +75,7 @@ df <- vcd2df(f_name)
 
 ### File Management
 
-Once loaded within a data frame, the intial file may be cleaned.
+Once loaded within a data frame, the intial file may be unlinked.
 
 ```{r}
 #| label: clean
@@ -88,7 +89,6 @@ Most commonly, we can look at some register names with `rownames()`...
 #| label: rownames
 rownames(df)[1:5]
 ```
-
 
 ... or timestamps with `colnames()`.
 
