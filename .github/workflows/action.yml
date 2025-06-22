@@ -11,11 +11,7 @@ jobs:
         uses: actions/checkout@v4
       - name: r-base
         run: sudo apt install r-base
-      - name: rmarkdown 
-        run: sudo Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
-      - name: knitr 
-        run: sudo Rscript -e 'install.packages("knitr", repos="https://cloud.r-project.org")'
       - name: quarto 
-        run: sudo Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
+        run: sudo Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
       - name: test
         run: make test
