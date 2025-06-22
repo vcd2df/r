@@ -10,7 +10,7 @@ jobs:
       - name: checkout 
         uses: actions/checkout@v4
       - name: apt 
-        run: sudo apt install r-base qpdf texlive-latex-base texlive-fonts-extra -y
+        run: sudo apt install r-base qpdf texlive-latex-base texlive-fonts-extra tidy -y
       - name: pip
         run: pip install quarto-cli
       - name: rscript 
