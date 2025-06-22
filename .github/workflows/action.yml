@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: checkout 
         uses: actions/checkout@v4
-      - name: r-base
-        run: sudo apt install r-base -y
-      - name: pip-quarto
+      - name: apt 
+        run: sudo apt install r-base qpdf pdflatex -y
+      - name: pip
         run: pip install quarto-cli
-      - name: r-quarto 
+      - name: rscript 
         run: sudo Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
       - name: test
         run: make test
