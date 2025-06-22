@@ -12,10 +12,10 @@ jobs:
       - name: r-base
         run: sudo apt install r-base
       - name: rmarkdown 
-        run: Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
+        run: sudo Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
       - name: knitr 
-        run: Rscript -e 'install.packages("knitr", repos="https://cloud.r-project.org")'
+        run: sudo Rscript -e 'install.packages("knitr", repos="https://cloud.r-project.org")'
       - name: quarto 
-        run: Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
+        run: sudo Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
       - name: test
         run: make test
