@@ -10,6 +10,8 @@ jobs:
       - name: checkout 
         uses: actions/checkout@v4
       - name: r-base
-        run: sudo apt update && sudo apt install r-base quarto -y
+        run: sudo apt install r-base -y
+      - name: quarto
+        run: pip install quarto-cli
       - name: test
         run: make test
