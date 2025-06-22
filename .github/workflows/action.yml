@@ -7,5 +7,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - run: make test
+      - name: checkout 
+        uses: actions/checkout@v4
+      - name: r-base
+        run: sudo apt install r-base
+      - name: rmarkdown 
+        run: Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
+      - name: knitr 
+        run: Rscript -e 'install.packages("knitr", repos="https://cloud.r-project.org")'
+      - name: quarto 
+        run: Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
+      - name: test
+        run: make test
