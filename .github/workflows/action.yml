@@ -11,9 +11,9 @@ jobs:
         uses: actions/checkout@v4
       - name: r-base
         run: sudo apt install r-base -y
-      - name: quarto
+      - name: pip-quarto
         run: pip install quarto-cli
-      - name: quarto 
-        run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
+      - name: r-quarto 
+        run: sudo Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
       - name: test
         run: make test
