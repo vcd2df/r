@@ -13,5 +13,7 @@ jobs:
         run: sudo apt install r-base -y
       - name: quarto
         run: pip install quarto-cli
+      - name: quarto 
+        run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
       - name: test
         run: make test
