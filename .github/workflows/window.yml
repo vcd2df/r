@@ -1,0 +1,23 @@
+name: LoseDows
+
+on: push
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Download r-base
+      run: curl https://cran.r-project.org/bin/windows/base/R-4.5.1-win.exe -o r.exe
+    - name: Download r-tools
+      run: curl https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6608-6492.exe -o rtools.exe
+    - name: Install R
+      run: r.exe
+    - name: Install R-tools
+      run: rtools.exe
+    - name: Build
+      run: R CMD build .
+    - name: Check
+      run: R CMD check --as-cran vcd2df_1.0.1.tar.gz 
