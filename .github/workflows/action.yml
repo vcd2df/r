@@ -10,7 +10,7 @@ jobs:
       - name: checkout 
         uses: actions/checkout@v4
       - name: r-base
-        run: sudo apt install r-base
+        run: sudo apt install r-base quarto
       - name: quarto 
         run: sudo Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
       - name: test
