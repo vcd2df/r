@@ -9,18 +9,18 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Download r-base
+    - name: Chocolatey install
       shell: pwsh
-      run: curl https://cran.r-project.org/bin/windows/base/R-4.5.1-win.exe -o r-base.exe
-    - name: Install R-base
+      run: choco install qpdf quarto miktex
+    - name: qpdf test
       shell: pwsh
-      run: start r-base.exe
-    - name: Chocolatey
+      run: qpdf --version
+    - name: Quarto test
       shell: pwsh
-      run: choco install qpdf quarto tinytex
-    - name: R Quarto
+      run: quarto --version
+    - name: LaTeX test
       shell: pwsh
-      run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
+      run: pdflatex --version
     - name: Build
       shell: pwsh
       run: R.exe CMD build .
