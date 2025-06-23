@@ -20,4 +20,4 @@ jobs:
     - name: Install R-tools
       run: start rtools.exe
     - name: Check
-      run: R CMD check --as-cran vcd2df_1.0.1.tar.gz 
+      run: R.exe CMD check --as-cran vcd2df_1.0.1.tar.gz 
