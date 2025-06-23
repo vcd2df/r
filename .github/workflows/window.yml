@@ -10,7 +10,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Download r-base
-      run: curl https://cran.r-project.org/bin/windows/base/release.html -o r-base.exe
+      run: curl https://cran.r-project.org/bin/windows/base/R-4.5.1-win.exe -o r-base.exe
     - name: Download r-tools
       run: curl https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6608-6492.exe -o rtools.exe
     - name: Install R-base
