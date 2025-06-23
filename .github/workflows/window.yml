@@ -14,7 +14,7 @@ jobs:
     - name: Install R-base
       run: start r-base.exe
     - name: Build
-      run: R.exe --version
+      run: R.exe CMD build .
     - name: Download r-tools
       run: curl https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6608-6492.exe -o rtools.exe
     - name: Install R-tools
