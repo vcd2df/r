@@ -13,13 +13,11 @@ jobs:
       run: curl https://cran.r-project.org/bin/windows/base/R-4.5.1-win.exe -o r-base.exe
     - name: Install R-base
       run: start r-base.exe
-    - name: Download r-tools
-      run: curl https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6608-6492.exe -o rtools.exe
     - name: Install R-tools
-      run: start rtools.exe      
-    - name: pip
+      run: choco install rtools
+    - name: Pip Quarto
       run: pip install quarto-cli
-    - name: rscript 
+    - name: R Quarto
       run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
     - name: Build
       run: R.exe CMD build .
