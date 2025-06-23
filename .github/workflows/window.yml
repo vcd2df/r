@@ -14,7 +14,7 @@ jobs:
     - name: Install R-base
       run: start r-base.exe
     - name: Chocolatey
-      run: choco install rtools && refreshenv
+      run: choco install rtools --force
     - name: R Quarto
       run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
     - name: Build
