@@ -17,7 +17,7 @@ jobs:
       run: start r-base.exe
     - name: Chocolatey
       shell: pwsh
-      run: choco install qpdf quarto tinytex && refreshenv
+      run: choco install qpdf quarto tinytex
     - name: R Quarto
       shell: pwsh
       run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
