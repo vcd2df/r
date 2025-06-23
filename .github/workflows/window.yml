@@ -8,16 +8,23 @@ jobs:
 
     steps:
     - name: Checkout repository
+      shell: pwsh
       uses: actions/checkout@v4
     - name: Download r-base
+      shell: pwsh
       run: curl https://cran.r-project.org/bin/windows/base/R-4.5.1-win.exe -o r-base.exe
     - name: Install R-base
+      shell: pwsh
       run: start r-base.exe
     - name: Chocolatey
-      run: choco install rtools --force
+      shell: pwsh
+      run: choco install qpdf quarto tinytex && refreshenv
     - name: R Quarto
+      shell: pwsh
       run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
     - name: Build
+      shell: pwsh
       run: R.exe CMD build .
     - name: Check
+      shell: pwsh
       run: R.exe CMD check --as-cran vcd2df_1.0.1.tar.gz 
