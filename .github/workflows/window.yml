@@ -14,7 +14,7 @@ jobs:
     - name: Download r-tools
       run: curl https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6608-6492.exe -o rtools.exe
     - name: Install R-tools
-      run: rtools.exe
+      run: ./rtools.exe
     - name: Build
       run: R CMD build .
     - name: Check
