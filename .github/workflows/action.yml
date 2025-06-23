@@ -3,7 +3,7 @@ name: Ubuntu Check
 on: push
 
 jobs:
-  generate-spec:
+  linux-check:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/vcd2df/crayon:latest
