@@ -1,19 +1,12 @@
-name: Checks 
-
-on: workflow_dispatch
+name: Ubuntu Check
+  
+on: push
 
 jobs:
-  build:
+  generate-spec:
     runs-on: ubuntu-latest
-
+    container:
+      image: ghcr.io/vcd2df/crayon:latest
     steps:
-      - name: checkout 
-        uses: actions/checkout@v4
-      - name: apt 
-        run: sudo apt update && sudo apt install r-base qpdf texlive-latex-base texlive-fonts-extra tidy -y
-      - name: pip
-        run: pip install quarto-cli
-      - name: rscript 
-        run: sudo Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
-      - name: test
-        run: make test
+    - uses: actions/checkout@v4
+    - run: make test
