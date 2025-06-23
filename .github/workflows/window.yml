@@ -17,4 +17,4 @@ jobs:
       run: Rscript.exe -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
     - name: Check
       shell: pwsh
-      run: R.exe CMD check --no-build-vignettes vcd2df_1.0.1.tar.gz 
+      run: R.exe CMD check --ignore-vignettes vcd2df_1.0.1.tar.gz 
