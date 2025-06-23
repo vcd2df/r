@@ -10,12 +10,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Download r-base
-      run: curl https://cran.r-project.org/bin/windows/base/release.html -o r.exe
+      run: curl https://cran.r-project.org/bin/windows/base/release.html -o r-base.exe
     - name: Download r-tools
       run: curl https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6608-6492.exe -o rtools.exe
+    - name: Install R-base
+      run: ./r-base.exe
     - name: Install R-tools
       run: ./rtools.exe
     - name: Build
-      run: ./r.exe CMD build .
+      run: R CMD build .
     - name: Check
-      run: ./r.exe CMD check --as-cran vcd2df_1.0.1.tar.gz 
+      run: R CMD check --as-cran vcd2df_1.0.1.tar.gz 
