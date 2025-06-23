@@ -18,6 +18,10 @@ jobs:
     - name: Download r-tools
       run: curl https://cran.r-project.org/bin/windows/Rtools/rtools45/files/rtools45-6608-6492.exe -o rtools.exe
     - name: Install R-tools
-      run: start rtools.exe
+      run: start rtools.exe      
+    - name: pip
+      run: pip install quarto-cli
+    - name: rscript 
+      run: Rscript -e 'install.packages("quarto", repos="https://cloud.r-project.org")'
     - name: Check
       run: R.exe CMD check --as-cran vcd2df_1.0.1.tar.gz 
